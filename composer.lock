@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aa9d8508e3f05eb30e6bff12b1d27191",
+    "content-hash": "3a60d3ea08a103d774418f8f704d13ef",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1840,6 +1840,50 @@
                 }
             ],
             "time": "2022-05-10T09:36:00+00:00"
+        },
+        {
+            "name": "narokishi/laravel-email-templates",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/narokishi/laravel-email-templates.git",
+                "reference": "b812235dce79f8b5a3ebe29c9311852b40af51e0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/narokishi/laravel-email-templates/zipball/b812235dce79f8b5a3ebe29c9311852b40af51e0",
+                "reference": "b812235dce79f8b5a3ebe29c9311852b40af51e0",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Pleb\\EmailTemplatesServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pleb\\": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0"
+            ],
+            "description": "Laravel Email Templates (Blade)",
+            "keywords": [
+                "email",
+                "laravel",
+                "php",
+                "templates"
+            ],
+            "support": {
+                "source": "https://github.com/narokishi/laravel-email-templates/tree/main"
+            },
+            "time": "2022-04-02T20:00:16+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -8051,7 +8095,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "narokishi/laravel-email-templates": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

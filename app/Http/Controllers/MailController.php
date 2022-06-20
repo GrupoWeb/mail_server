@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Mail;
 use Symfony\Component\HttpFoundation\Response;
 use App\Mail\SendNotificationDace;
 use Illuminate\Support\Facades\DB;
+use App\Mail\WelcomeMember;
+use App\Models\User;
 
 class MailController extends Controller
 {
