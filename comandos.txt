@@ -9,3 +9,5 @@ composer require laravel/horizon:4.3.5 --ignore-platform-reqs
 
 
 composer require narokishi/laravel-email-templates --ignore-platform-reqs
+
+php artisan make:mail TransferDocuments
