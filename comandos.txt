@@ -1,4 +1,4 @@
-docker run -it -d -p 8080:80 -v d:/www/mail_server/mail_server:/var/www/html jjolon/horizon:v1
+docker run -it -d -p 8081:80 -v d:/www/mail_server/mail_server:/var/www/html jjolon/horizon:v1
 
 composer require predis/predis --ignore-platform-reqs
 

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Mail;
 use Symfony\Component\HttpFoundation\Response;
 use App\Mail\SendNotificationDace;
 use App\Mail\TransferDocuments;
+use App\Mail\DiacoNotificationCall;
 use Illuminate\Support\Facades\DB;
 use App\Mail\CopiesUser;
 use App\Models\User;
@@ -51,6 +52,22 @@ class MailController extends Controller
             DB::beginTransaction();
 
             Mail::to($request->to)->send(new CopiesUser($request->usuario_to, $request->empresa_to,$request->numero_to,$request->asunto_to,$request->interno, $request->copias, $request->instrucciones,$request->fecha));
+            
+            DB::commit();
+
+            return response()->json('success',Response::HTTP_OK);
+        } catch (\Throwable $th) {
+            throw $th;
+            DB::rollBack();
+            return response()->json(['error'    =>  $th],Response::HTTP_SERVER_INTERNAL_ERROR);
+        }
+    }
+
+    public function sendNotificationDiacoCall(Request $request){
+        try {
+            DB::beginTransaction();
+
+            Mail::to($request->to)->send(new DiacoNotificationCall($request->name, $request->number,$request->link));
             
             DB::commit();
 

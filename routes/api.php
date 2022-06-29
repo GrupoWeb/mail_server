@@ -21,3 +21,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('sendMailDaceNotification','MailController@sendMailDaceNotification');
 Route::post('sendTransferNotification','MailController@sendTransferNotification');
 Route::post('sendCopiesNotification','MailController@sendCopiesNotification');
+
+
+
+Route::prefix('diaco')->group(function () {
+    Route::post('/sendNotificationDiacoCall','MailController@sendNotificationDiacoCall');
+});

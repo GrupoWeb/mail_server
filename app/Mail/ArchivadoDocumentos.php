@@ -16,9 +16,20 @@ class ArchivadoDocumentos extends Mailable
      *
      * @return void
      */
-    public function __construct()
+
+    public $usuarioTo;
+    public $internalCorrelative;
+    public $externalCorrelative;
+    public $receivingUser;
+    public $typeDocument;
+
+    public function __construct($userTo, $internalCorrelative, $externalCorrelative, $receivingUser,$typeDocument)
     {
-        //
+        $this->usuarioTo = $userTo;
+        $this->internalCorrelative = $internalCorrelative;
+        $this->externalCorrelative = $externalCorrelative;
+        $this->receivingUser = $receivingUser;
+        $this->typeDocument = $typeDocument;
     }
 
     /**
