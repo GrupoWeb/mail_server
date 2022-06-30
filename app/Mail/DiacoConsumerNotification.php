@@ -12,6 +12,7 @@ class DiacoConsumerNotification extends Mailable implements ShouldQueue
     use Queueable, SerializesModels;
 
     public $linkQueja;
+    public $flag;
     public $subject = "Atención al Consumidor - Solicitud para Completar  Queja ";
 
     /**
@@ -19,9 +20,10 @@ class DiacoConsumerNotification extends Mailable implements ShouldQueue
      *
      * @return void
      */
-    public function __construct($link)
+    public function __construct($link, $flag)
     {
         $this->linkQueja = $link;
+        $this->flag = $flag;
     }
 
     /**
@@ -32,7 +34,8 @@ class DiacoConsumerNotification extends Mailable implements ShouldQueue
     public function build()
     {
         return $this->markdown('emails.send.notification.diaco.ConsumerNotification',[
-            'link'  =>  $this->linkQueja
+            'link'  =>  $this->linkQueja,
+            'flag'  =>  $this->flag
         ])->subject($this->subject);
     }
 }

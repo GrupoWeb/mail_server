@@ -101,7 +101,7 @@ class MailController extends Controller
         try {
             DB::beginTransaction();
 
-            Mail::to($request->to)->send(new DiacoConsumerNotification($request->link));
+            Mail::to($request->to)->send(new DiacoConsumerNotification($request->link, $request->flag));
             
             DB::commit();
 
