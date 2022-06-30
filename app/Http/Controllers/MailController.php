@@ -10,6 +10,7 @@ use App\Mail\TransferDocuments;
 use App\Mail\DiacoNotificationCall;
 use App\Mail\DiacoNotificationWeb;
 use App\Mail\DiacoConsumerNotification;
+use App\Mail\DiacoPermanentCommunication;
 use Illuminate\Support\Facades\DB;
 use App\Mail\CopiesUser;
 use App\Models\User;
@@ -102,6 +103,22 @@ class MailController extends Controller
             DB::beginTransaction();
 
             Mail::to($request->to)->send(new DiacoConsumerNotification($request->link, $request->flag));
+            
+            DB::commit();
+
+            return response()->json('success',Response::HTTP_OK);
+        } catch (\Throwable $th) {
+            throw $th;
+            DB::rollBack();
+            return response()->json(['error'    =>  $th],Response::HTTP_SERVER_INTERNAL_ERROR);
+        }
+    }
+
+    public function sendNotificationPermanent(Request $request){
+        try {
+            DB::beginTransaction();
+
+            Mail::to($request->to)->send(new DiacoPermanentCommunication($request->descripcion, $request->observacion, $request->flag));
             
             DB::commit();
 

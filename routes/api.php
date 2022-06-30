@@ -28,4 +28,5 @@ Route::prefix('diaco')->group(function () {
     Route::post('/sendNotificationDiacoCall','MailController@sendNotificationDiacoCall');
     Route::post('/sendNotificationDiacoWeb','MailController@sendNotificationDiacoWeb');
     Route::post('/sendNotificationDiacoConsumer','MailController@sendNotificationDiacoConsumer');
+    Route::post('/sendNotificationPermanent','MailController@sendNotificationPermanent');
 });
