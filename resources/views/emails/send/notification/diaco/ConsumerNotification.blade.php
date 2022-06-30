@@ -993,7 +993,7 @@
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td align="center" class="esd-block-button"><span class="es-button-border"><a href="{{ $link }}" class="es-button" target="_blank">CLICK</a></span></td>
+                                                                                    <td align="center" class="esd-block-button"><span class="es-button-border">{{ $link }}</span></td>
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td align="center" class="esd-block-text es-p10t es-p10b" esd-links-color="#1d367c">
