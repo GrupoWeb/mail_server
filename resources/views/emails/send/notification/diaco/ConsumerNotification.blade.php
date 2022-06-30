@@ -993,7 +993,7 @@
                                                                                             <p style="text-align: justify;">La Dirección de Atención y Asistencia al Consumidor -DIACO-, le informa que para poder continuar con el tramite de su queja necesitamos que llene la información del siguiente link.</p>
                                                                                         @else
                                                                                             <p style="text-align: justify;">La Dirección de Atención y Asistencia al Consumidor -DIACO-, le informa que en el sistema aparece que no hubo un acuerdo entre el proveedor y su persona. Por lo que, para que DIACO programe la audiencia de conciliación y no se cierre el caso, por favor ingrese datos complementarios para el proceso respectivo en el sigueinte link.</p>
-                                                                                        @enif
+                                                                                        @endif
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
