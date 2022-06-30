@@ -9,6 +9,7 @@ use App\Mail\SendNotificationDace;
 use App\Mail\TransferDocuments;
 use App\Mail\DiacoNotificationCall;
 use App\Mail\DiacoNotificationWeb;
+use App\Mail\DiacoConsumerNotification;
 use Illuminate\Support\Facades\DB;
 use App\Mail\CopiesUser;
 use App\Models\User;
@@ -85,6 +86,22 @@ class MailController extends Controller
             DB::beginTransaction();
 
             Mail::to($request->to)->send(new DiacoNotificationWeb($request->name, $request->number,$request->link));
+            
+            DB::commit();
+
+            return response()->json('success',Response::HTTP_OK);
+        } catch (\Throwable $th) {
+            throw $th;
+            DB::rollBack();
+            return response()->json(['error'    =>  $th],Response::HTTP_SERVER_INTERNAL_ERROR);
+        }
+    }
+
+    public function sendNotificationDiacoConsumer(Request $request){
+        try {
+            DB::beginTransaction();
+
+            Mail::to($request->to)->send(new DiacoConsumerNotification($request->link));
             
             DB::commit();
 
